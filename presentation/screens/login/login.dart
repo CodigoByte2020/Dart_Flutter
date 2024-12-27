@@ -6,7 +6,6 @@ import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 class Login extends StatefulWidget {
-
   Login({super.key});
 
   @override
@@ -14,11 +13,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _amountController = TextEditingController();
-  final TextEditingController _cellPhoneNumberController = TextEditingController();
+  final TextEditingController _cellPhoneNumberController =
+      TextEditingController();
   final TextEditingController _destinationController = TextEditingController();
+
   // String _dateTime = '';
   late DateFormat dateFormat;
   late DateFormat timeFormat;
@@ -28,7 +28,7 @@ class _LoginState extends State<Login> {
   void initState() {
     super.initState();
     initializeDateFormatting();
-    dateFormat = DateFormat('d MMM. y - hh: mm a', 'es_PE');
+    dateFormat = DateFormat('d MMM. y - hh:mm a', 'es_PE');
     // timeFormat = DateFormat('hh: mm a', 'es_PE');
   }
 
@@ -36,32 +36,34 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    String _getCurrenDateTime () {
+    String _getCurrenDateTime() {
       // Configura la localización a español
       // Intl.defaultLocale = 'es_PE';
       DateTime now = DateTime.now();
       print('**************$now');
       // String datess = DateFormat('MMM').format(now);
-      String datess = dateFormat.format(now).replaceAll('a. m.', 'am').replaceAll('p. m.', 'pm');
+      String datess = dateFormat
+          .format(now)
+          .replaceAll('a. m.', 'am')
+          .replaceAll('p. m.', 'pm');
       print('**************$datess***');
       return datess;
     }
 
-    // TODO: I FINISHED THIS METHOD
-    String _getCellPhoneNumber (String cellPhoneNumber) {
+    String _getCellPhoneNumber(String cellPhoneNumber) {
       int lengthCellPhoneNumber = cellPhoneNumber.length;
-      return lengthCellPhoneNumber == 9 ? '*** *** ${cellPhoneNumber.substring(lengthCellPhoneNumber - 3)}' : '';
-      // return if (lengthCellPhoneNumber == 9) '*** *** ${cellPhoneNumber.substring(lengthCellPhoneNumber - 3)}';
+      return lengthCellPhoneNumber == 9
+          ? '*** *** ${cellPhoneNumber.substring(lengthCellPhoneNumber - 3)}'
+          : '';
     }
 
-    String _getOperationNumber () {
+    String _getOperationNumber() {
       Random random = Random();
       int firstRandomNumber = random.nextInt(2);
       int secondRandomNumber = 1000000 + random.nextInt(9000000);
       String finalNumber = '$firstRandomNumber$secondRandomNumber';
       return finalNumber;
     }
-
 
     return Scaffold(
       body: Center(
@@ -73,12 +75,9 @@ class _LoginState extends State<Login> {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: TextField(
-                  controller: _nameController,  // Link _controller to TextField
-                  obscureText: true,
+                  controller: _nameController, // Link _controller to TextField
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Nombre'
-                  ),
+                      border: OutlineInputBorder(), labelText: 'Nombre'),
                 ),
               ),
             ),
@@ -88,11 +87,8 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: TextField(
                   controller: _amountController,
-                  obscureText: true,
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Monto'
-                  ),
+                      border: OutlineInputBorder(), labelText: 'Monto'),
                 ),
               ),
             ),
@@ -102,11 +98,9 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: TextField(
                   controller: _cellPhoneNumberController,
-                  obscureText: true,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Número de celular'
-                  ),
+                      labelText: 'Número de celular'),
                 ),
               ),
             ),
@@ -116,37 +110,34 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: TextField(
                   controller: _destinationController,
-                  obscureText: true,
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Destino'
-                  ),
+                      border: OutlineInputBorder(), labelText: 'Destino'),
                 ),
               ),
             ),
             // ElevatedButton(onPressed: () => {}, child: Text('Generar imagen'))
             ElevatedButton(
-              onPressed: () {
-                final name = _nameController.text; // Captures the entered text
-                final amount = _amountController.text;
-                final cellPhoneNumber = _cellPhoneNumberController.text;
-                final destination = _destinationController.text;
-                // final currentDateTime = _getCurrenDateTime().toString();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => BakgroundImage(
-                    name: name,
-                    amount: amount,
-                    currentDateTime: _getCurrenDateTime().toString(),
-                    cellPhoneNumber: _getCellPhoneNumber(cellPhoneNumber),
-                    destination: destination,
-                    operationNumber: _getOperationNumber()
-                  )
-                  ),
-                );
-              },
-              child: Text('Ir a la segunda pantalla')
-            )
+                onPressed: () {
+                  final name =
+                      _nameController.text; // Captures the entered text
+                  final amount = _amountController.text;
+                  final cellPhoneNumber = _cellPhoneNumberController.text;
+                  final destination = _destinationController.text;
+                  // final currentDateTime = _getCurrenDateTime().toString();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => BakgroundImage(
+                            name: name,
+                            amount: amount,
+                            currentDateTime: _getCurrenDateTime().toString(),
+                            cellPhoneNumber:
+                                _getCellPhoneNumber(cellPhoneNumber),
+                            destination: destination,
+                            operationNumber: _getOperationNumber())),
+                  );
+                },
+                child: Text('Ir a la segunda pantalla'))
           ],
         ),
       ),
