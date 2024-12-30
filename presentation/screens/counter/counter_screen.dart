@@ -21,16 +21,11 @@ class _CounterScreenState extends State<CounterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Center(
           child: Text('Counter Screen')
         ),
-        // leading: IconButton(
-        //     onPressed: () => {},
-        //     icon: Icon(Icons.refresh_rounded)
-        // ),
         actions: [
           IconButton(
               onPressed: () {

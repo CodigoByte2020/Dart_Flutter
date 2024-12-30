@@ -20,92 +20,6 @@ class BakgroundImage extends StatelessWidget {
     required this.operationNumber
   });
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     body: Center(
-  //       child: Image(image: AssetImage('images/background.png')),
-  //     ),
-  //   );
-  // }
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     body: Stack(
-  //       children: [
-  //         Center(
-  //           child: Image(image: AssetImage('images/background.png')),
-  //         ),
-  //         Positioned(
-  //           top: 200,
-  //           left: 120,
-  //           child: Text(name)
-  //         ),
-  //         Positioned(
-  //             top: 250,
-  //             left: 120,
-  //             child: Text(amount)
-  //         ),
-  //         Positioned(
-  //             top: 300,
-  //             left: 120,
-  //             child: Text(currentDateTime)
-  //         ),
-  //         Positioned(
-  //             top: 500,
-  //             left: 220,
-  //             child: Container(
-  //               decoration: BoxDecoration(
-  //                 border: Border.all(color: Colors.blue, width: 3)
-  //               ),
-  //               child: Text(cellPhoneNumber)
-  //             ),
-  //         ),
-  //         Positioned(
-  //           top: 545,
-  //           left: 220,
-  //           child: Container(
-  //               decoration: BoxDecoration(
-  //                   border: Border.all(color: Colors.blue, width: 3)
-  //               ),
-  //               child: Text(destination)
-  //           ),
-  //         ),
-  //         Positioned(
-  //           top: 593,
-  //           left: 230,
-  //           child: Container(
-  //               decoration: BoxDecoration(
-  //                   border: Border.all(color: Colors.blue, width: 3)
-  //               ),
-  //               child: Text(operationNumber)
-  //           ),
-  //         ),
-  //       ],
-  //     ),
-  //     floatingActionButton: FloatingActionButton(
-  //       child: Icon(Icons.arrow_back),
-  //       onPressed: () {
-  //         Navigator.push(
-  //           context,
-  //           MaterialPageRoute(builder: (context) => Login())
-  //         );
-  //       }),
-  //   );
-  // }
-
-  // WidgetSpan(
-  //   alignment: PlaceholderAlignment.bottom, // Alinea el texto arriba
-  //   child: Text(
-  //     'S/',
-  //     style: TextStyle(
-  //       color: Color(0xFFe0b1e8),
-  //       // fontSize: 20, // Asegúrate de ajustar el tamaño para que quede proporcional
-  //     ),
-  //   ),
-  // ),
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,58 +30,38 @@ class BakgroundImage extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Center(
               child: Column(
-                // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
                     padding: EdgeInsets.only(top: 304),
-                    // child: Column(
-                    //   children: [
-                    //     Text.rich(
-                    //       TextSpan(
-                    //         children: [
-                    //           TextSpan(
-                    //             text: 'S/ ',
-                    //             style: TextStyle(
-                    //               color: Color(0xFFe0b1e8)
-                    //             )
-                    //           ),
-                    //           TextSpan(
-                    //             text: amount,
-                    //             style: TextStyle(
-                    //               color: Color(0xFF752087),
-                    //               fontSize: 55,
-                    //               fontWeight: FontWeight.w400
-                    //             )
-                    //           )
-                    //         ]
-                    //       )
-                    //     ),
-                    //   ],
-                    // ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    child: Column(
                       children: [
-                        Container(
-                          color: Colors.green,
-                          // width: 100,
-                          // height: 100,
-                          child: Text(
-                            'S/ ',
-                            style: TextStyle(
-                              color: Color(0xFFe0b1e8)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: 54,
+                              // color: Colors.blue,
+                              child: Text(
+                                'S/ ',
+                                style: TextStyle(
+                                  color: Color(0xFFe7b5f0),
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.w700
+                                )
+                              ),
+                            ),
+                            Text(
+                              amount,
+                              style: TextStyle(
+                                color: Color(0xFF752087),
+                                fontSize: 55,
+                                fontWeight: FontWeight.w400
+                              )
                             )
-                          ),
-                        ),
-                        Text(
-                          amount,
-                          style: TextStyle(
-                            color: Color(0xFF752087),
-                            fontSize: 55,
-                            fontWeight: FontWeight.w400
-                          )
+                          ],
                         )
                       ],
-                    )
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 14),
@@ -271,14 +165,15 @@ class BakgroundImage extends StatelessWidget {
           ),
         ]
       ),
-    floatingActionButton: FloatingActionButton(
-      child: Icon(Icons.arrow_back),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Login())
-        );
-      }),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Login())
+          );
+        }
+      ),
     );
   }
 }
