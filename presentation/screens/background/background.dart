@@ -165,15 +165,15 @@ class BakgroundImage extends StatelessWidget {
           ),
         ]
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.arrow_back),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Login())
-          );
-        }
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   child: Icon(Icons.arrow_back),
+      //   onPressed: () {
+      //     Navigator.push(
+      //       context,
+      //       MaterialPageRoute(builder: (context) => Login())
+      //     );
+      //   }
+      // ),
     );
   }
 }

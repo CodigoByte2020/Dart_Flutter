@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 class Login extends StatefulWidget {
-  Login({super.key});
+  const Login({super.key});
 
   @override
   State<Login> createState() => _LoginState();
@@ -32,7 +32,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    String _getCurrenDateTime() {
+    String getCurrenDateTime() {
       // Configura la localización a español
       // Intl.defaultLocale = 'es_PE';
       DateTime now = DateTime.now();
@@ -43,14 +43,14 @@ class _LoginState extends State<Login> {
       return datess;
     }
 
-    String _getCellPhoneNumber(String cellPhoneNumber) {
+    String getCellPhoneNumber(String cellPhoneNumber) {
       int lengthCellPhoneNumber = cellPhoneNumber.length;
       return lengthCellPhoneNumber == 9
           ? '*** *** ${cellPhoneNumber.substring(lengthCellPhoneNumber - 3)}'
           : '';
     }
 
-    String _getOperationNumber() {
+    String getOperationNumber() {
       Random random = Random();
       int firstRandomNumber = random.nextInt(2);
       int secondRandomNumber = 1000000 + random.nextInt(9000000);
@@ -126,10 +126,10 @@ class _LoginState extends State<Login> {
                     builder: (context) => BakgroundImage(
                       name: name,
                       amount: amount,
-                      currentDateTime: _getCurrenDateTime().toString(),
-                      cellPhoneNumber: _getCellPhoneNumber(cellPhoneNumber),
+                      currentDateTime: getCurrenDateTime().toString(),
+                      cellPhoneNumber: getCellPhoneNumber(cellPhoneNumber),
                       destination: destination,
-                      operationNumber: _getOperationNumber()
+                      operationNumber: getOperationNumber()
                     )
                   ),
                 );
