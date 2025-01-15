@@ -25,7 +25,12 @@ class BakgroundImage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image(image: AssetImage('images/background.png')),
+          Image.asset(
+            'images/background.png',
+            height: double.infinity,
+            width: double.infinity,
+            fit: BoxFit.cover
+          ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Center(
